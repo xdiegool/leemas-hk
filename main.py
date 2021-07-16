@@ -46,11 +46,11 @@ def main():
 	with header:
 		st.title("Bienvenido/a a LeeMaS")
 		st.text('En este proyecto le brindo un resultado de sugerencias de acuerdo al usuario registrado')
-	with dataset:
-		st.header("Coursera dataset")
-		st.subheader('Contenido')
-		st.text('Aquí he escarvado datos del sitio web oficial de Coursera. Nuestro proyecto tiene como objetivo ayudar a cualquier alumno nuevo a obtener el curso adecuado para aprender con solo responder algunas preguntas. Es un sistema inteligente de recomendación de cursos. Por lo tanto, tuvimos que eliminar datos de algunos sitios web educativos. Estos son datos excarvados del sitio web de Coursera.')
-		st.text('This dataset contains mainly 6 columns and 890 course data. The detailed description:')
+	# with dataset:
+	# 	st.header("Coursera dataset")
+	# 	st.subheader('Contenido')
+	# 	st.text('Aquí he escarvado datos del sitio web oficial de Coursera. Nuestro proyecto tiene como objetivo ayudar a cualquier alumno nuevo a obtener el curso adecuado para aprender con solo responder algunas preguntas. Es un sistema inteligente de recomendación de cursos. Por lo tanto, tuvimos que eliminar datos de algunos sitios web educativos. Estos son datos excarvados del sitio web de Coursera.')
+	# 	st.text('This dataset contains mainly 6 columns and 890 course data. The detailed description:')
 
 # course_title : Contains the course title.
 # course_organization : It tells which organization is conducting the courses.
@@ -58,8 +58,6 @@ def main():
 # course_rating : It has the ratings associated with each course.
 # course_difficulty : It tells about how difficult or what is the level of the course.
 # coursestudentsenrolled : It has the number of students that are enrolled in the course.')
-	coursu_data = pd.read_csv('data/complete_course_data.csv')
-	st.write(coursu_data.head())
 	menu = ["Home","Login","SignUp"]
 	choice = st.sidebar.selectbox("Menu",menu)
 
@@ -87,6 +85,10 @@ def main():
 					platform = my_form.text_input(label="¿Alguna plataforma preferida?")
 					number = my_form.slider("Ingrese su edad", min_value=10, max_value=100)
 					submit = my_form.form_submit_button(label="Enviar este formulario")
+					if submit:
+						with st.beta_expander("Resultaods"):
+							coursu_data = pd.read_csv('data/complete_course_data.csv')
+							st.write(coursu_data.head())
 					# col1, col2 = st.beta_columns(2)
 					#
 					# with col1:
