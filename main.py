@@ -83,22 +83,42 @@ def main():
 					my_form = st.form(key="form1")
 					price = my_form.text_input(label="¿Prefieres cursos gratis, de pago o de cualquier tipo?")
 					topic = my_form.text_input(label="¿Tema que quieres tomar en curso?")
-					nivel = my_form.selectbox(label="¿Cuál es el nivel de dificultad: todos, principiante, intermedio o avanzado?")#,['todos', 'principiante', 'intermedio', 'avanzado'],key=1)
+					nivel = my_form.selectbox("¿Cuál es el nivel de dificultad: todos, principiante, intermedio o avanzado?",['todos', 'principiante', 'intermedio', 'avanzado'], index=0)
 					platform = my_form.text_input(label="¿Alguna plataforma preferida?")
-
-					# number = my_form.slider("Enter your age", min_value=10, max_value=100)
-					submit = my_form.form_submit_button(label="Submit this form")
-					task = st.selectbox("Task",["Add Post","Analytics","Profiles"])
-					if task == "Add Post":
-						st.subheader("Add Your Post")
-
-					elif task == "Analytics":
-						st.subheader("Analytics")
-					elif task == "Profiles":
-						st.subheader("User Profiles")
-						user_result = view_all_users()
-						clean_db = pd.DataFrame(user_result,columns=["Username","Password"])
-						st.dataframe(clean_db)
+					number = my_form.slider("Ingrese su edad", min_value=10, max_value=100)
+					submit = my_form.form_submit_button(label="Enviar este formulario")
+					# col1, col2 = st.beta_columns(2)
+					#
+					# with col1:
+					# 	with st.form('Form1'):
+					# 		st.selectbox('Select flavor', ['Vanilla', 'Chocolate'], key=1)
+					# 		st.slider(label='Select intensity', min_value=0, max_value=100, key=4)
+					# 		submitted1 = st.form_submit_button('Submit 1')
+					#
+					# with col2:
+					# 	with st.form('Form2'):
+					# 		st.selectbox('Select Topping', ['Almonds', 'Sprinkles'], key=2)
+					# 		st.slider(label='Select Intensity', min_value=0, max_value=100, key=3)
+					# 		submitted2 = st.form_submit_button('Submit 2')
+					# st.markdown("Columns inside form")
+					#
+					# with st.form(key='columns_in_form'):
+					# 	cols = st.beta_columns(5)
+					# 	for i, col in enumerate(cols):
+					# 		col.selectbox(f'Make a Selection', ['click', 'or click'], key=i)
+					# 	submitted = st.form_submit_button('Submit')
+					sel_col, disp_col = st.beta_columns(2)
+				# task = st.selectbox("Task",["Add Post","Analytics","Profiles"])
+					# if task == "Add Post":
+					# 	st.subheader("Add Your Post")
+					#
+					# elif task == "Analytics":
+					# 	st.subheader("Analytics")
+					# elif task == "Profiles":
+					# 	st.subheader("User Profiles")
+					# 	user_result = view_all_users()
+					# 	clean_db = pd.DataFrame(user_result,columns=["Username","Password"])
+					# 	st.dataframe(clean_db)
 			else:
 				st.warning("Incorrect Username/Password")
 
