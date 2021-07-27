@@ -49,7 +49,7 @@ def main():
 	with dataset:
 		st.header("Coursera dataset")
 		st.subheader('Contenido')
-		st.write('Aquí he escarvado datos del sitio web oficial de Coursera. Nuestro proyecto tiene como objetivo ayudar a cualquier alumno nuevo a obtener el curso adecuado para aprender con solo responder algunas preguntas. Es un sistema inteligente de recomendación de cursos. Por lo tanto, tuvimos que eliminar datos de algunos sitios web educativos. Estos son datos excarvados del sitio web de Coursera.')
+		st.write('Aquí he desguasado datos del sitio web oficial de Coursera. Nuestro proyecto tiene como objetivo ayudar a cualquier alumno nuevo a obtener el curso adecuado para aprender con solo responder algunas preguntas. Es un sistema inteligente de recomendación de cursos. Por lo tanto, tuvimos que eliminar datos de algunos sitios web educativos. Estos son datos desguasados del sitio web de Coursera.')
 	# 	st.text('This dataset contains mainly 6 columns and 890 course data. The detailed description:')
 
 # course_title : Contains the course title.
